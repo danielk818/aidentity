@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="372" viewBox="0 0 900 372" role="img" aria-label="Audit of aidentity: five small findings, one commit each">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+    .title { font-size: 20px; font-weight: 600; fill: #1F2430; }
+    .sub { font-size: 13px; fill: #6B7280; }
+    .num { font-size: 12px; font-weight: 700; fill: #ffffff; }
+    .pill { font-size: 11px; font-weight: 700; fill: #ffffff; letter-spacing: 0.4px; }
+    .row { font-size: 14px; fill: #1F2430; }
+    .fix { font-size: 12px; fill: #6B7280; }
+    .tests { font-size: 12px; fill: #6B7280; }
+    .foot { font-size: 12px; fill: #6B7280; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  </style>
+  <rect x="0.5" y="0.5" width="899" height="371" rx="12" fill="#ffffff" stroke="#d0d7de"/>
+  <text x="28" y="40" class="title">Audit of aidentity: five small findings, one commit each</text>
+  <text x="28" y="62" class="sub">A read-through of src/, install.sh, uninstall.sh, the tests and the release scripts. Verdict: healthy.</text>
+
+  <!-- row 1 -->
+  <circle cx="44" cy="100" r="12" fill="#1F2430"/><text x="44" y="104" text-anchor="middle" class="num">1</text>
+  <rect x="68" y="89" width="68" height="22" rx="11" fill="#E5484D"/><text x="102" y="104" text-anchor="middle" class="pill">BUG</text>
+  <text x="152" y="97" class="row"><tspan class="mono">rename</tspan> left a hollow launcher when a file inside it was locked</text>
+  <text x="152" y="114" class="fix">now moved aside first, as rm does; a locked file waits in a hidden folder the message names</text>
+  <text x="872" y="104" text-anchor="end" class="tests">2 tests</text>
+  <line x1="28" y1="124" x2="872" y2="124" stroke="#eaeef2"/>
+
+  <!-- row 2 -->
+  <circle cx="44" cy="144" r="12" fill="#1F2430"/><text x="44" y="148" text-anchor="middle" class="num">2</text>
+  <rect x="68" y="133" width="68" height="22" rx="11" fill="#E5484D"/><text x="102" y="148" text-anchor="middle" class="pill">BUG</text>
+  <text x="152" y="141" class="row">the uninstaller skipped launchers kept outside the home and app folders</text>
+  <text x="152" y="158" class="fix">now counts every Spotlight hit, as prune and rm --purge do; their data is no longer listed as orphan</text>
+  <text x="872" y="148" text-anchor="end" class="tests">1 test</text>
+  <line x1="28" y1="168" x2="872" y2="168" stroke="#eaeef2"/>
+
+  <!-- row 3 -->
+  <circle cx="44" cy="188" r="12" fill="#1F2430"/><text x="44" y="192" text-anchor="middle" class="num">3</text>
+  <rect x="68" y="177" width="68" height="22" rx="11" fill="#E5484D"/><text x="102" y="192" text-anchor="middle" class="pill">BUG</text>
+  <text x="152" y="185" class="row"><tspan class="mono">add --</tspan> dropped every word after it, without saying so</text>
+  <text x="152" y="202" class="fix">now refused like any other option add does not know</text>
+  <text x="872" y="192" text-anchor="end" class="tests">1 test</text>
+  <line x1="28" y1="212" x2="872" y2="212" stroke="#eaeef2"/>
+
+  <!-- row 4 -->
+  <circle cx="44" cy="232" r="12" fill="#1F2430"/><text x="44" y="236" text-anchor="middle" class="num">4</text>
+  <rect x="68" y="221" width="68" height="22" rx="11" fill="#2E7DF6"/><text x="102" y="236" text-anchor="middle" class="pill">DOCS</text>
+  <text x="152" y="229" class="row">VS Code, Cursor and Kiro profiles need macOS 12, but the guide said no minimum</text>
+  <text x="152" y="246" class="fix">plutil -extract … raw first appeared in macOS 12; the guide and README now say so</text>
+  <text x="872" y="236" text-anchor="end" class="tests">guide, README</text>
+  <line x1="28" y1="256" x2="872" y2="256" stroke="#eaeef2"/>
+
+  <!-- row 5 -->
+  <circle cx="44" cy="276" r="12" fill="#1F2430"/><text x="44" y="280" text-anchor="middle" class="num">5</text>
+  <rect x="68" y="265" width="68" height="22" rx="11" fill="#6B7280"/><text x="102" y="280" text-anchor="middle" class="pill">CLEANUP</text>
+  <text x="152" y="273" class="row">three colour lists had to agree by hand</text>
+  <text x="152" y="290" class="fix">the menu's picker list is now derived from COLOR_NAMES; a test pins its order</text>
+  <text x="872" y="280" text-anchor="end" class="tests">1 test</text>
+
+  <line x1="28" y1="316" x2="872" y2="316" stroke="#d0d7de"/>
+  <rect x="28" y="330" width="164" height="22" rx="11" fill="#2FB344"/><text x="110" y="345" text-anchor="middle" class="pill">3179 TESTS, 0 FAILED</text>
+  <text x="206" y="345" class="foot">full suite under /bin/bash 3.2 on macOS 26.5 · shellcheck and the source guards after every commit</text>
+</svg>
